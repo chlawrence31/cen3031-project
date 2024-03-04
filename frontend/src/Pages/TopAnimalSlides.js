@@ -8,8 +8,8 @@ export const TopAnimalSlides = ({ topAnimals }) => {
     return (
         <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
-        spaceBetween={50}
-        slidesPerView={1}
+        spaceBetween={5}
+        slidesPerView={3}
         navigation
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
@@ -18,14 +18,15 @@ export const TopAnimalSlides = ({ topAnimals }) => {
     >
 
             {topAnimals.map((slide) => (
-                <SwiperSlide key={slide.image}>
-                    <img src={slide.image} alt={slide.title}/>
+                <SwiperSlide style={{ backgroundPosition: 'center', backgroundSize: 'cover' }} key={slide.image} effect>
+                    <img style= {{ width: 400, height: 500 }} src={slide.image} alt={slide.title}/>
+                    <h3>Name: {slide.name}</h3>
+                    <h3>Species: {slide.species}</h3>
+                    <h3>Sex: {slide.sex}</h3>
+                    <h3>Age: {slide.age}</h3>
                 </SwiperSlide>
                 
             ))}
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
         </Swiper>
     )
 }

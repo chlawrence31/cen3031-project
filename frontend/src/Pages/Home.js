@@ -15,7 +15,6 @@ const breakPoints = [
 function HomePage() {
   return (
     <div className="Home">
-      <h6>Homepage</h6>
       <h1 style={{ textAlign: "center" }}>Big Cats Rescue</h1>
       <h2 style={{ textAlign: "center" }}>Meet Our Most Popular Animals</h2>
       <TopAnimalSlides topAnimals={topAnimals}/>
