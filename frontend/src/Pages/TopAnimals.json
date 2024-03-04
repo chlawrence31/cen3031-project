@@ -1,0 +1,30 @@
+[
+    {
+      "name": "Harambe",
+      "species": "Gorilla gorilla gorilla (Western Lowland Gorilla)",
+      "sex": "Male",
+      "age": "17",
+      "image": "https://images.unsplash.com/photo-1640869061113-c95fd4549c6b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "name": "John Porkington",
+      "species": "Sus Domesticus (Domestic Pig)",
+      "sex": "Male",
+      "age": "5",
+      "image": "https://images.unsplash.com/photo-1567201080580-bfcc97dae346?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "name": "Frederick Leopold Fazbearington",
+      "species": "Ursus Arctos Horribilis (Grizzly Bear)",
+      "sex": "Male",
+      "age": "21",
+      "image": "https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        "name": "Kowalski",
+        "species": "Pygoscelis adeliae (Adelie Penguin)",
+        "sex": "Male",
+        "age": "Enough",
+        "image": "https://images.unsplash.com/photo-1705418181762-1a52ab82ddf5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    }
+  ]
