@@ -2,14 +2,17 @@ import React from 'react';
 import { Carousel } from 'react-bootstrap';
 
 const AnimalSlider = () => {
+  // Define the interval time in milliseconds
+  const intervalTime = 4000; // 4 seconds
+
   // Define the caption content and styles for the title
   const title = {
     content: "Big Cat Rescue",
     style: {
       fontSize: '60px',
       fontFamily: 'Copperplate, serif',
-      bottomMargin: '0px',
-      lineHeight: '.6' // Included lineHeight in order to get title closer to welcomeMessage
+      marginBottom: '0px',
+      lineHeight: '1.2'
     }
   };
 
@@ -25,7 +28,7 @@ const AnimalSlider = () => {
 
   return (
     <Carousel fade>
-      <Carousel.Item interval={3000}>
+      <Carousel.Item interval={intervalTime}>
         <img
           className="d-block w-100"
           src="https://images5.alphacoders.com/337/337331.jpg"
@@ -37,7 +40,7 @@ const AnimalSlider = () => {
           <h1 style={welcomeMessage.style}>{welcomeMessage.content}</h1>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item>
+      <Carousel.Item interval={intervalTime}>
         <img
           className="d-block w-100"
           src="https://images7.alphacoders.com/287/287970.jpg"
@@ -49,7 +52,7 @@ const AnimalSlider = () => {
           <h1 style={welcomeMessage.style}>{welcomeMessage.content}</h1>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item>
+      <Carousel.Item interval={intervalTime}>
         <img
           className="d-block w-100"
           src="https://i.pinimg.com/originals/ea/2d/49/ea2d49c5b5029b7789396304d6a9b4f0.jpg"
