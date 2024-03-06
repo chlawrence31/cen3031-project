@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import Home from './Pages/Home'
 import About from './Pages/About'
 import Gallery from './Pages/Gallery'
+import Login from './Pages/Login'
+import Signup from './Pages/Signup'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -19,9 +21,11 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
         </Routes>
-        </div>
-      </Router>
+      </div>
+    </Router>
   );
 }
 
