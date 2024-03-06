@@ -1,30 +1,35 @@
 import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import LoginSignUp from './LoginSignUpButton'; // Import the LoginSignUp component
 
 const NavbarComponent = () => {
+  const location = useLocation();
+
   const navbarStyle = {
     position: 'absolute', // Set position to absolute
     width: '100%', // Ensure the navbar spans the entire width
-    zIndex: '100', // Set a higher z-index value than the slider
+    zIndex: '100', // Set a higher z-index value than the slider to ensure on top
   };
 
   const brandStyle = {
     fontFamily: 'Copperplate, serif',
-    fontSize: '25px', // Set the font size for the brand
+    fontSize: '25px',
     textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)'
   };
 
   const navLinkStyle = {
     fontFamily: 'Copperplate, serif',
-    fontSize: '18px', // Set the font size for Nav.Link components
+    fontSize: '18px',
     textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)'
   };
 
+  // Conditionally apply the 'bg="transparent"' prop if the current route is the homepage
+  const navbarBg = location.pathname === '/home' ? 'transparent' : 'dark';
+
   return (
-    <div style={{ position: 'relative' }}> {/* Apply position relative to the container */}
-      <Navbar bg="transparent" variant="dark" expand="lg" style={navbarStyle}>
+    <div style={{ position: 'relative' }}>
+      <Navbar bg={navbarBg} variant="dark" expand="lg" style={navbarStyle}>
         <Container>
           <Navbar.Brand as={Link} to="/home" style={brandStyle}>Big Cat Rescue</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
