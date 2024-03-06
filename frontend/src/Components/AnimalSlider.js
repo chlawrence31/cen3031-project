@@ -12,7 +12,8 @@ const AnimalSlider = () => {
       fontSize: '60px',
       fontFamily: 'Copperplate, serif',
       marginBottom: '0px',
-      lineHeight: '1'
+      lineHeight: '1',
+      textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)'
     }
   };
 
@@ -23,7 +24,8 @@ const AnimalSlider = () => {
       fontSize: '40px',
       fontFamily: 'Copperplate, serif',
       marginTop: '0px',
-      marginBottom: '120px'
+      marginBottom: '120px',
+      textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)'
     }
   };
 
