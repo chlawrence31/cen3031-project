@@ -5,6 +5,9 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import Home from './Pages/Home'
 import About from './Pages/About'
 import Gallery from './Pages/Gallery'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 function App() {
   return (
