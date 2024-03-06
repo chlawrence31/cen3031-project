@@ -31,21 +31,10 @@ const AnimalSlider = () => {
       <Carousel.Item interval={intervalTime}>
         <img
           className="d-block w-100"
-          src="https://images5.alphacoders.com/337/337331.jpg"
-          alt="First slide"
-          style={{ maxHeight: '400px', objectFit: 'cover' }}
-        />
-        <Carousel.Caption className="text-center" style={{ bottom: '10px', left: '0', right: '0', margin: 'auto' }}>
-          <h3 style={title.style}>{title.content}</h3>
-          <h1 style={welcomeMessage.style}>{welcomeMessage.content}</h1>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item interval={intervalTime}>
-        <img
-          className="d-block w-100"
-          src="https://images7.alphacoders.com/287/287970.jpg"
+          src="https://www.thewildlifediaries.com/wp-content/uploads/2019/05/lion-3049884_1280.jpg"
           alt="Second slide"
-          style={{ maxHeight: '400px', objectFit: 'cover' }}
+          // removed object fit bc looked better given the image
+          style={{ maxHeight: '400px'}}
         />
         <Carousel.Caption className="text-center" style={{ bottom: '10px', left: '0', right: '0', margin: 'auto' }}>
           <h3 style={title.style}>{title.content}</h3>
@@ -57,6 +46,18 @@ const AnimalSlider = () => {
           className="d-block w-100"
           src="https://i.pinimg.com/originals/ea/2d/49/ea2d49c5b5029b7789396304d6a9b4f0.jpg"
           alt="Third slide"
+          style={{ maxHeight: '400px', objectFit: 'cover' }}
+        />
+        <Carousel.Caption className="text-center" style={{ bottom: '10px', left: '0', right: '0', margin: 'auto' }}>
+          <h3 style={title.style}>{title.content}</h3>
+          <h1 style={welcomeMessage.style}>{welcomeMessage.content}</h1>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item interval={intervalTime}>
+        <img
+          className="d-block w-100"
+          src="https://images5.alphacoders.com/337/337331.jpg"
+          alt="First slide"
           style={{ maxHeight: '400px', objectFit: 'cover' }}
         />
         <Carousel.Caption className="text-center" style={{ bottom: '10px', left: '0', right: '0', margin: 'auto' }}>
