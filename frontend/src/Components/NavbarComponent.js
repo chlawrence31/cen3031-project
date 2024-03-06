@@ -1,16 +1,11 @@
+// NavbarComponent.js
 import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
-import LoginSignUp from './LoginSignUpButton'; // Import the LoginSignUp component
+import LoginSignUp from './LoginSignUpButton';
 
 const NavbarComponent = () => {
   const location = useLocation();
-
-  const navbarStyle = {
-    position: 'absolute', // Set position to absolute
-    width: '100%', // Ensure the navbar spans the entire width
-    zIndex: '100', // Set a higher z-index value than the slider to ensure on top
-  };
 
   const brandStyle = {
     fontFamily: 'Copperplate, serif',
@@ -24,11 +19,16 @@ const NavbarComponent = () => {
     textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)'
   };
 
-  // Conditionally apply the 'bg="transparent"' prop if the current route is the homepage
+  // Conditionally apply transparency and overlapping
   const navbarBg = location.pathname === '/home' ? 'transparent' : 'dark';
+  const navbarStyle = {
+    position: location.pathname === '/home' ? 'absolute' : 'relative',
+    width: '100%',
+    zIndex: '100',
+  };
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div>
       <Navbar bg={navbarBg} variant="dark" expand="lg" style={navbarStyle}>
         <Container>
           <Navbar.Brand as={Link} to="/home" style={brandStyle}>Big Cat Rescue</Navbar.Brand>
