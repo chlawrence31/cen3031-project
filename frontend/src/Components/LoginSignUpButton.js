@@ -4,8 +4,8 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 function LoginSignUpButton() {
   return (
     <ButtonGroup aria-label="Basic example" size="sm">
-      <Button variant="secondary">Login</Button>
-      <Button variant="secondary">Sign-Up</Button>
+      <Button variant="outline-primary" style={{fontWeight: 'bold'}}>Login</Button>
+      <Button variant="success" style={{fontWeight: 'bold'}}>Sign-Up</Button>
     </ButtonGroup>
   );
 }
