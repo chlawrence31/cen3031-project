@@ -31,7 +31,7 @@ const AnimalSlider = () => {
 
   return (
     <Carousel fade>
-      <Carousel.Item interval={intervalTime}>
+      <Carousel.Item interval={intervalTime} pause={false}>
         <img
           className="d-block w-100"
           src="https://www.thewildlifediaries.com/wp-content/uploads/2019/05/lion-3049884_1280.jpg"
