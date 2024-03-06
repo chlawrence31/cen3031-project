@@ -16,7 +16,7 @@ function HomePage() {
   return (
     <div className="Home">
       <h1 style={{ textAlign: "center" }}>Big Cats Rescue</h1>
-      <h3 style={{ textAlign: "center" }}>Our mission is to protect and preserve large cats of all species. Make your contribution today!</h3>
+      <h3 style={{ textAlign: "center" }}>Our mission is to safeguard the world’s exotic wildcat species through a multifaceted approach. Make your contribution today!</h3>
       <h2 style={{ textAlign: "center" }}>Meet Our Most Popular Animals</h2>
       <TopAnimalSlides topAnimals={topAnimals}/>
     </div>
