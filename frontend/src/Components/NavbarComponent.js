@@ -38,6 +38,7 @@ const NavbarComponent = () => {
               <Nav.Link as={Link} to="/home" style={navLinkStyle}>Home</Nav.Link>
               <Nav.Link as={Link} to="/about" style={navLinkStyle}>About</Nav.Link>
               <Nav.Link as={Link} to="/gallery" style={navLinkStyle}>Gallery</Nav.Link>
+              <Nav.Link as={Link} to="/donate" style={navLinkStyle}>Donate</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
