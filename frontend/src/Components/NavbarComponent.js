@@ -25,7 +25,7 @@ const NavbarComponent = () => {
     position: location.pathname === '/home' ? 'absolute' : 'relative',
     width: '100%',
     zIndex: '100',
-  };
+  }; 
 
   return (
     <div>
