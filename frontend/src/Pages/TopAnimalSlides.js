@@ -8,7 +8,7 @@ export const TopAnimalSlides = ({ topAnimals }) => {
     return (
         <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
-        spaceBetween={5}
+        spaceBetween={0}
         slidesPerView={3}
         navigation
         pagination={{ clickable: true }}
