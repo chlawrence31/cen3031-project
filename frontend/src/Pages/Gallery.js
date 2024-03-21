@@ -20,6 +20,7 @@ function Gallery() {
   return (
     <div>
       <h1>Gallery</h1>
+      <img src = "https://media.istockphoto.com/id/1283050796/vector/flat-design-under-construction-concept.jpg?s=1024x1024&w=is&k=20&c=_2RXRXtQSYd5ThdeUblSFXL9dcduioLK_dKz2QWOupQ="></img>
     </div>
   );
 }
