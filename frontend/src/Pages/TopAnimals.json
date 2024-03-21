@@ -1,56 +1,56 @@
 [
     {
       "name": "Hungry",
-      "species": "Panthera pardus (Leopard)",
+      "species": "Panthera pardus",
       "sex": "Female",
       "age": "7",
       "image": "https://images.unsplash.com/photo-1544985361-b420d7a77043?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       "name": "Garfield",
-      "species": "Acinonyx jubatus (Cheetah)",
+      "species": "Acinonyx jubatus",
       "sex": "Male",
       "age": "5",
       "image": "https://images.unsplash.com/photo-1582425312148-de9955e68e45?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       "name": "Frederick",
-      "species": "Panthera leo (African Lion)",
+      "species": "Panthera leo",
       "sex": "Male",
       "age": "11",
       "image": "https://images.unsplash.com/photo-1545137418-4f1e60820cd9?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
         "name": "Kowalski",
-        "species": "Panthera tigris tigris (Siberian Tiger)",
+        "species": "Panthera tigris tigris",
         "sex": "Male",
         "age": "6",
         "image": "https://images.unsplash.com/photo-1524132989408-c8ee48d8f147?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       "name": "Winter",
-      "species": "Panthera uncia (Snow Leopard)",
+      "species": "Panthera uncia",
       "sex": "Female",
       "age": "4",
       "image": "https://images.unsplash.com/photo-1546977532-4a61683ea4a0?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }, 
     {
       "name": "Whiskers",
-      "species": "Puma concolor (Mountain Lion)",
+      "species": "Puma concolor",
       "sex": "Female",
       "age": "8",
       "image": "https://images.unsplash.com/photo-1527720255604-b27935ade401?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       "name": "Mister",
-      "species": "Lynx rufus (Bobcat)",
+      "species": "Lynx rufus",
       "sex": "Male",
       "age": "11",
       "image": "https://images.unsplash.com/photo-1633525172839-7d5d794d8c9d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       "name": "Lily",
-      "species": "Caracal",
+      "species": "Caracal caracal",
       "sex": "Female",
       "age": "10",
       "image": "https://images.unsplash.com/photo-1643579296072-c78054cbb51b?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
