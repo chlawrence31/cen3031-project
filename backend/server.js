@@ -4,13 +4,15 @@ const cors = require('cors')
 
 const app = express()
 app.use(cors())
+app.use(express.json())
 
 const db = mysql.createConnection({
-    host:"local host",
+    host:"localhost",
     user: "root",
-    password: "",
-    database: ""        // Update to the name of your particular database set in mysqlWorkbench
+    password: "password",
+    database: "AnimalSanctuary"        // Update to the name of your particular database set in mysqlWorkbench
 })
+
 app.get("./api", (req, res) => 
 {
     res.json({"users": ["userOne", "userTwo", "userThree"]})
@@ -74,4 +76,4 @@ app.post('/login', (req, res) =>
     })
 })
 
-app.listen(5000, ()=> {console.log("Server started on port 5000")})
+app.listen(8000, ()=> {console.log("Server started on port 8000")})
