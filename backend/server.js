@@ -60,10 +60,10 @@ app.post('/signup', (req, res) =>
 //Handles login requests
 app.post('/login', (req, res) => 
 {
-    const sql = "Selecting users from email"
+    const sql = "SELECT * FROM login WHERE email = ? AND password = ?"
     db.query(sql, [req.body.email, req.body.password], (err, result) => 
     {
-        if(err) return res.json({Message: "Error inside server"});
+        if(err) return res.json({Message: "Login Failed"});
         if(result.length > 0)
         {
             req.session.username = result[0].username;
