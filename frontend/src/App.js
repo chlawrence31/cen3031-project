@@ -8,6 +8,9 @@ import Gallery from './Pages/Gallery'
 import Donate from './Pages/Donate'
 import Login from './Pages/Login'
 import Signup from './Pages/Signup'
+import DonationLogin from './Pages/DonationLogin'
+import DonationForm from './Pages/DonationForm'
+import DonationConfirmation from './Pages/DonationConfirmation'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -25,6 +28,9 @@ function App() {
           <Route path="/donate" element={<Donate />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/donationlogin" element={<DonationLogin />} />
+          <Route path="/donationform" element={<DonationForm />} />
+          <Route path='/donationconfirmation' element={<DonationConfirmation />} />
         </Routes>
       </div>
     </Router>
