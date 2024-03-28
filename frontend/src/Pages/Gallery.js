@@ -27,7 +27,7 @@ const Gallery = () => {
         <Row>
           {animals.map((animal) => (
             <Col key={animal.ID} xs={12} sm={6} md={4} lg={3}>
-              <Card style={{ height: '100%' }}>
+              <Card style={{ height: '100%', position: 'relative' }}>
                 {animal.Image && (
                   <Card.Img
                     variant="top"
@@ -36,13 +36,14 @@ const Gallery = () => {
                     style={{ height: '200px', objectFit: 'cover' }} // Adjust dimensions as needed
                   />
                 )}
-                <Card.Body style={{ height: '200px' }}>
+                <Card.Body style={{ height: '300px' }}>
                   <Card.Title style={{ minHeight: '50px' }}>{animal.Name}</Card.Title>
                   <Card.Text style={{ minHeight: '100px' }}>
                     <p>Species: {animal.Species}</p>
                     <p>Sex: {animal.Sex}</p>
                     <p>{animal.Description}</p>
                   </Card.Text>
+                  <button className="btn btn-primary" style={{ position: 'absolute', bottom: '5px' }}>Donate</button>
                 </Card.Body>
               </Card>
             </Col>
