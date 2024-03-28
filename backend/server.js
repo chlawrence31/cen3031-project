@@ -43,10 +43,10 @@ app.get('/', (req, res) =>
 //Handles signup requests
 app.post('/signup', (req, res) => 
 {
-    const sql = "Insert user values"
+    const sql = "INSERT INTO login('username', 'email', 'password') VALUES (?)";
     const values = 
     [
-        req.body.name,
+        req.body.username,
         req.body.email,
         req.body.password
     ]
@@ -60,18 +60,20 @@ app.post('/signup', (req, res) =>
 //Handles login requests
 app.post('/login', (req, res) => 
 {
-    const sql = "SELECT * FROM login WHERE email = ? AND password = ?"
+    const sql = "SELECT * FROM login WHERE 'email' = ? AND 'password' = ?"
     db.query(sql, [req.body.email, req.body.password], (err, result) => 
     {
         if(err) return res.json({Message: "Login Failed"});
         if(result.length > 0)
         {
             req.session.username = result[0].username;
-            return res.json({Login: true})
+            return res.json("Success")
+            //return res.json({Login: true})
         }
         else
         {
-            return res.json({Login: false})
+            return res.json("Failed")
+            //return res.json({Login: false})
         }
     })
 })
