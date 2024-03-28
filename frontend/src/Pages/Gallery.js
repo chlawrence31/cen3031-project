@@ -1,29 +1,58 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import axios from 'axios'; // Assuming you've included Axios
 
-function Gallery() {
-
+const Gallery = () => {
   const [animals, setAnimals] = useState([]);
 
   useEffect(() => {
-    const fetchAllAnimals = async () => {
+    const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/animals");
-        console.log(res);
-      } catch (err) {
-        console.log(err);
+        const response = await axios.get('http://localhost:8000/animals'); // Replace with your actual API endpoint
+        setAnimals(response.data);
+      } catch (error) {
+        console.error(error);
       }
     };
-    fetchAllAnimals();
+
+    fetchData();
   }, []);
 
   return (
-    <div>
-      <h1>Gallery</h1>
-      <img src = "https://media.istockphoto.com/id/1283050796/vector/flat-design-under-construction-concept.jpg?s=1024x1024&w=is&k=20&c=_2RXRXtQSYd5ThdeUblSFXL9dcduioLK_dKz2QWOupQ="></img>
+    <div className="container">
+      <h1>Animal Gallery</h1>
+      {animals.length > 0 ? (
+        <Row>
+          {animals.map((animal) => (
+            <Col key={animal.ID} xs={12} sm={6} md={4} lg={3}>
+              <Card style={{ height: '100%' }}>
+                {animal.Image && (
+                  <Card.Img
+                    variant="top"
+                    src={animal.Image}
+                    alt={animal.Name}
+                    style={{ height: '200px', objectFit: 'cover' }} // Adjust dimensions as needed
+                  />
+                )}
+                <Card.Body style={{ height: '200px' }}>
+                  <Card.Title style={{ minHeight: '50px' }}>{animal.Name}</Card.Title>
+                  <Card.Text style={{ minHeight: '100px' }}>
+                    <p>Species: {animal.Species}</p>
+                    <p>Sex: {animal.Sex}</p>
+                    <p>{animal.Description}</p>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      ) : (
+        <p>No animals found!</p>
+      )}
     </div>
   );
-}
+};
 
 export default Gallery;
-
