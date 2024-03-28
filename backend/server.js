@@ -43,7 +43,7 @@ app.get('/', (req, res) =>
 //Handles signup requests
 app.post('/signup', (req, res) => 
 {
-    const sql = "INSERT INTO login('username', 'email', 'password') VALUES (?)";
+    const sql =  "INSERT INTO `login`(`name`, `email`, `password`) VALUES ('" + req.body.username + "', '" + req.body.email + "', '" + req.body.password + "')";;
     const values = 
     [
         req.body.username,
