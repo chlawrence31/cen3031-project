@@ -2,15 +2,17 @@ import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import axios from 'axios'; // Assuming you've included Axios
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Gallery = () => {
   const [animals, setAnimals] = useState([]);
+  const navigate = useNavigate(); // Get history object for navigation
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/animals'); // Replace with your actual API endpoint
+        const response = await axios.get('http://localhost:8000/animals');
         setAnimals(response.data);
       } catch (error) {
         console.error(error);
@@ -19,6 +21,11 @@ const Gallery = () => {
 
     fetchData();
   }, []);
+
+  // Use navigate form react-router-dom to go to new page without full page reload with animal object
+  const handleDonateClick = (animal) => {
+    navigate(`/donationForm?animal=${animal}`); // Navigate to donate page with animal data as query parameter
+  };
 
   return (
     <div className="container">
@@ -43,7 +50,8 @@ const Gallery = () => {
                     <p>Sex: {animal.Sex}</p>
                     <p>{animal.Description}</p>
                   </Card.Text>
-                  <button className="btn btn-primary" style={{ position: 'absolute', bottom: '5px' }}>Donate</button>
+                  {/* Pass animal data to handleDonateClick */}
+                  <button className="btn btn-primary" style={{ position: 'absolute', bottom: '5px' }} onClick={() => handleDonateClick(animal)}>Donate</button>
                 </Card.Body>
               </Card>
             </Col>
