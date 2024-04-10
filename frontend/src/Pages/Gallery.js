@@ -24,7 +24,7 @@ const Gallery = () => {
 
   // Use navigate form react-router-dom to go to new page without full page reload with animal object
   const handleDonateClick = (animal) => {
-    navigate(`/donationForm?animal=${animal}`); // Navigate to donate page with animal data as query parameter
+    navigate(`/donationForm?animal=${encodeURIComponent(JSON.stringify(animal))}`); // Navigate to donate page with animal data as query parameter
   };
 
   return (
