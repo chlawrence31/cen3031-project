@@ -34,7 +34,7 @@ const AnimalSlider = () => {
       <Carousel.Item interval={intervalTime} pause={false}>
         <img
           className="d-block w-100"
-          src="https://www.thewildlifediaries.com/wp-content/uploads/2019/05/lion-3049884_1280.jpg"
+          src="https://i.pinimg.com/originals/35/07/fe/3507fe1ad0c752b4a33a34d7f51be15c.jpg"
           alt="Second slide"
           // removed object fit bc looked better given the image
           style={{ maxHeight: '400px'}}
