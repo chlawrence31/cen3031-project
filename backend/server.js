@@ -1,10 +1,18 @@
 const express = require('express');
+const session = require('express-session');
 const mysql = require('mysql2')
 const cors = require('cors')
 
 const app = express()
 app.use(cors())
 app.use(express.json())
+
+// Session middleware setup
+app.use(session({
+    secret: 'your-secret-key',
+    resave: false,
+    saveUninitialized: true
+}));
 
 const db = mysql.createConnection({
     host:"localhost",
@@ -58,25 +66,29 @@ app.post('/signup', (req, res) =>
 })
 
 //Handles login requests
-app.post('/login', (req, res) => 
-{
-    const sql = "SELECT * FROM login WHERE 'email' = ? AND 'password' = ?"
-    db.query(sql, [req.body.email, req.body.password], (err, result) => 
-    {
-        if(err) return res.json({Message: "Login Failed"});
-        if(result.length > 0)
-        {
-            req.session.username = result[0].username;
-            return res.json("Success")
-            //return res.json({Login: true})
+app.post('/login', (req, res) => {
+    // Extract data from request body
+    const { email, password } = req.body;
+
+    const sql = "SELECT * FROM login WHERE email = ? AND password = ?";
+    db.query(sql, [email, password], (err, result) => {
+        if (err) {
+            console.error('Error executing login query:', err);
+            return res.status(500).json({ message: 'Internal server error' });
         }
-        else
-        {
-            return res.json("Failed")
-            //return res.json({Login: false})
+
+        if (result.length > 0) {
+            // User found, set session and return success
+            const username = result[0].username;
+            req.session.username = username;
+            return res.json({ success: true, username: username });
+        } else {
+            // No user found with provided credentials
+            return res.status(401).json({ message: 'Invalid email or password' });
         }
-    })
-})
+    });
+});
+
 
 //Update donation info in DB
 app.post('/donationUpdate', (req, res) => {
