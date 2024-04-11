@@ -1,11 +1,13 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import {useLocation, useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Card } from 'react-bootstrap';
+import axios from 'axios';
 
 function Donate() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const animal = JSON.parse(queryParams.get('animal'));
+
   
   let donateText = "Donate to Big Cat Rescue"; // Default text
   
@@ -13,13 +15,33 @@ function Donate() {
     donateText = `Donate to ${animal.Name} the ${animal.Species}`;
   }
 
+  const [donationAmount, setDonationAmount] = useState(0);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    try {
+      // Send donation amount and animal ID to backend
+      const response = await axios.post('http://localhost:8000/donationUpdate', {
+        animalId: animal.Id,
+        amount: donationAmount,
+      });
+      console.log('Donation successful:', response.data);
+      navigate('/donationconfirmation');
+    } catch (error) {
+      console.error('Error donating:', error);
+      // Handle error
+    }
+  };
+
   return (
     <Container className="mt-5">
      
       <Row>
         <Col md={8}>
           <h1 className="text-center" style={{marginBottom: '5%'}}>{donateText}</h1>
-          <form style={{ maxWidth: "400px", margin: "0 auto" }}>
+          <form onSubmit={handleSubmit} style={{ maxWidth: "400px", margin: "0 auto" }}>
             <label htmlFor="inputFirstName" className="sr-only">Your information</label>
             <div className="form-group">
               <input type="name" id="firstName" className="form-control mb-3" 
@@ -35,7 +57,7 @@ function Donate() {
             </div>
             <div className="form-group">
               <input type="number" id="donationAmount" className="form-control mb-3" min="0" required 
-              placeholder="Donation amount" />
+              placeholder="Donation amount" value={donationAmount} onChange={(e) => setDonationAmount(e.target.value)} />
             </div>
             <div className="form-group">
               <label htmlFor="inputCreditCardNumber" className="sr-only">Payment Information</label>
@@ -51,7 +73,7 @@ function Donate() {
               </div>
             </div>
             <div className="text-center mt-3">
-              <Link to="/donationconfirmation" className="btn btn-lg btn-primary btn-block" type="submit">Donate</Link>
+              <button className="btn btn-lg btn-primary btn-block" type="submit">Donate</button>
             </div>
           </form>
         </Col>

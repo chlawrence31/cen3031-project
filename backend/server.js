@@ -78,4 +78,21 @@ app.post('/login', (req, res) =>
     })
 })
 
+//Update donation info in DB
+app.post('/donationUpdate', (req, res) => {
+    // Extract data from request body
+    const { animalId, amount } = req.body;
+    // SQL query
+    const sql = "UPDATE animals SET donation = donation + ? WHERE id = ?";
+    db.query(sql, [amount, animalId], (err, result) => {
+        if (err) {
+          console.error('Error updating donation:', err);
+          res.status(500).json({ error: 'Internal server error' });
+        } else {
+          console.log('Donation updated successfully');
+          res.status(200).json({ message: 'Donation updated successfully' });
+        }
+    });
+});
+
 app.listen(8000, ()=> {console.log("Server started on port 8000")})
