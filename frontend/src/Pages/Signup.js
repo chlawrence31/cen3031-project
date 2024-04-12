@@ -20,7 +20,7 @@ function Signup() {
   {
     event.preventDefault();
     //setErrors(validation(values))
-    axios.post('http://localhost:8000/signup', values).then(res => {navigate('/home')})
+    axios.post('http://localhost:8000/signup', values).then(navigate('/home'))
   }
   return (
     <div className ="text-center mt-5" style={{ maxWidth: "400px", margin: "0 auto" }}>
