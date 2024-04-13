@@ -4,7 +4,7 @@ import AboutBanner from '../Components/AboutBanner';
 
 function About() {
     return (
-      <div style = {{ fontFamily: 'Copperplate, serif', fontSize: '20px'}}>
+      <div style = {{ fontSize: '18px'}}>
         <AboutBanner />
         <Swiper 
           spaceBetween={30}
@@ -40,8 +40,8 @@ function About() {
           </SwiperSlide>
 
         </Swiper>
-
-        <h2 style={{ textAlign: "center" }}>Dive Deeper</h2>
+        <div style={{padding:'20px'}}>
+        <h2>Dive Deeper</h2>
 
         <p>Big Cat Rescue, one of the world’s most influential accredited sanctuaries for exotic cats, and a leading advocate in ending the abuse of captive big cats and saving wild cats from extinction.  We are home to tigers, jaguar, bobcats, servals and other species most of whom have been abandoned, abused, orphaned, saved from being turned into fur coats, or retired from performing acts.</p>
  
@@ -68,6 +68,7 @@ function About() {
         <p>We’re proud to have the endorsement of celebrities, the backing of multiple awards, 
           and extensive media coverage. We maintain complete transparency, sharing our finances 
           and operations, so you can be confident that your support is put to the best possible use.</p>
+          </div>
       </div>
       
     );

@@ -29,15 +29,16 @@ function Donate() {
             </div>
           
           </div>
-      </div>
-
-      <div>
+          <div style={{ padding: '20px'}}>
         <p>Giving Makes a Difference! 🌈 Your contribution not only aids in the day-to-day care of our resident cats but also fuels ongoing campaigns to end private ownership of these magnificent animals and the cub petting industry in the U.S.</p>
 
         <p>No matter how you choose to give, every dollar brings us a step closer to a world where all wild cats can live free, the way they were meant to be. Your generosity means the world to us, and we promise to make your donation go as far as possible in achieving our shared vision.</p>
 
         <p>We truly appreciate your support. Whether big or small, every donation helps pave the way for a more humane and sustainable world.</p>
       </div>
+      </div>
+
+      
 
     </div>
 

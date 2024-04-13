@@ -7,12 +7,12 @@ function HomePage() {
   return (
     <div style={{ position: 'relative' }}> {/* Apply position relative to the container */}
       <AnimalSlider/>
-      <div className="Home" style={{ marginTop: '50px', marginBottom: '50px', position: 'relative', fontFamily: 'Copperplate, serif' }}> {/* Apply position relative to this div */}
+      <div className="Home" style={{ marginTop: '50px', marginBottom: '50px', position: 'relative' }}> {/* Apply position relative to this div */}
         <h1 style={{ textAlign: "center" }}>Mission Statement</h1>
-        <h3 style={{ textAlign: "center" }}>Our mission is to safeguard the world’s exotic wildcat species through a multifaceted approach. Make your contribution today!</h3>
+        <h3 style={{ textAlign: "center" }}>Our mission is to safeguard the world’s exotic wildcat species through a multifaceted approach.</h3>
       </div>
 
-      <div style = {{ fontFamily: 'Copperplate, serif', fontSize: '20px'}}>
+      <div style = {{fontSize: '18px', padding: '20px'}}>
         <p>With an unwavering commitment to conservation, we strive to protect these majestic creatures both in captivity and in their natural habitats.&nbsp;</p>
 
         <p>By championing the Big Cat Public Safety Act and funding insitu projects, we work tirelessly to combat the threats posed by the pet trade, wildlife trafficking, bushmeat and sport hunting, as well as the collection of wildcats for zoos.&nbsp;</p>
@@ -20,13 +20,14 @@ function HomePage() {
         <p>Our ultimate goal is to <strong>ensure the survival and thriving future of wildcats</strong>, fostering a world where they can roam freely and their presence continues to enrich our planet.</p>
       </div>
 
-      <div style = {{ fontFamily: 'Copperplate, serif' }}>
+      
         <h2 style={{ textAlign: "center" }}>Meet Our Most Popular Animals</h2>
         <TopAnimalSlides topAnimals={topAnimals} />
-        <h2 style={{ textAlign: 'center'}}>Our Goals</h2>
-      </div>
+    
 
-      <div style = {{ fontFamily: 'Copperplate, serif', fontSize: '20px'}}>
+
+      <div style = {{fontSize: '18px', padding: '20px' }}>
+        <h2>Our Goals</h2>
         <p>Welcome to Big Cat Rescue, a dedicated organization committed to the preservation and protection of exotic wildcat species. Founded with a passion for wild cat protection and conservation, we have been at the forefront of critical efforts to safeguard these remarkable creatures for over 31 years.</p>
 
         <p>Our journey began by recognizing the urgent need to address the issues faced by big cats in captivity. Through tireless advocacy and collaboration, we played a pivotal role in the passing of the U.S. federal Big Cat Public Safety Act in December 2022. This landmark legislation stands as a testament to our unwavering commitment to the well-being of big cats across the nation.</p>
