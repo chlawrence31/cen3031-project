@@ -11,6 +11,7 @@ import Signup from './Pages/Signup'
 import DonationLogin from './Pages/DonationLogin'
 import DonationForm from './Pages/DonationForm'
 import DonationConfirmation from './Pages/DonationConfirmation'
+import Profile from './Pages/Profile'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="/donationlogin" element={<DonationLogin />} />
           <Route path="/donationform" element={<DonationForm />} />
           <Route path='/donationconfirmation' element={<DonationConfirmation />} />
+          <Route path='/profile' element={<Profile/>} />
         </Routes>
       </div>
     </Router>

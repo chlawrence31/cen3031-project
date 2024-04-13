@@ -13,6 +13,7 @@ function About() {
           <SwiperSlide>
           <img style={{ width: 600, height: 400 }} src="https://images.unsplash.com/photo-1615827493656-cbafd73e4408?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
           <h2>Who are we?</h2>
+          
           <p>At Big Cat Rescue, we are not just a sanctuary for tigers and other big cats; 
           we’re a movement. Our mission is twofold: to put an end to the abuse of big cats living 
           in captivity and to work tirelessly to prevent the extinction of big cats in the wild. 

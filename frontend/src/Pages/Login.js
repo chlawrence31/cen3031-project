@@ -29,6 +29,9 @@ function Login() {
         const { success, username } = response.data;
         if (success) {
           navigate('/home');
+          // temporaily put the navigate to profile so that I could view the 
+          // profile page while working on it. will have to find a place to link it
+          // navigate('/profile');
         } else {
           alert("No account listed");
         }
