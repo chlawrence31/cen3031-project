@@ -31,7 +31,7 @@ app.get("/animals", (req,res) => {
 });
 
 //Checks if user is logged in
-app.get('/', (req, res) => 
+app.get('/loginCheck', (req, res) => 
 {
     if(req.session.username)
     {

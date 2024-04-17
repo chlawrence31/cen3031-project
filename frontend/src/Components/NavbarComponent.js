@@ -1,11 +1,29 @@
 // NavbarComponent.js
 import React from 'react';
+import { useState, useEffect } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 import LoginSignUp from './LoginSignUpButton';
+import axios from 'axios';
 
 const NavbarComponent = () => {
   const location = useLocation();
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
+
+  useEffect(() => {
+    // Function to check if user is logged in
+    const checkLoginStatus = async () => {
+      try {
+        const response = await axios.get('/loginCheck');
+        setIsLoggedIn(response.data.valid); // Update login status based on response
+      } catch (error) {
+        console.error('Error checking login status:', error);
+      }
+    };
+
+    checkLoginStatus(); // Call the function when component mounts
+  }, []); // Empty dependency array ensures useEffect runs only once on component mount
+
 
   const brandStyle = {
     fontFamily: 'Copperplate, serif',
@@ -43,7 +61,17 @@ const NavbarComponent = () => {
           </Navbar.Collapse>
         </Container>
         <div style={{ marginRight: '20px' }}>
-          <LoginSignUp />
+        {isLoggedIn ? (
+              // Render different content if user is logged in
+              <Nav>
+                <Nav.Link as={Link} to="/profile" style={navLinkStyle}>Profile</Nav.Link>
+              </Nav>
+            ) : (
+              // Render login/signup button if user is not logged in
+              <div style={{ marginRight: '20px' }}>
+                <LoginSignUp />
+              </div>
+            )}
         </div>
       </Navbar>
     </div>
