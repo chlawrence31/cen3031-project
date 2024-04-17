@@ -1,10 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow} from 'swiper/modules';
-
 // Import Swiper Styles
 import 'swiper/css/bundle';
 
-export const TopAnimalSlides = ({ topAnimals }) => {
+export const TopAnimalSlides = ({ data }) => {
     return (
         <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, EffectCoverflow]}
@@ -26,16 +25,15 @@ export const TopAnimalSlides = ({ topAnimals }) => {
         onSlideChange={() => console.log('slide change')}
     >   
 
-            {topAnimals.map((slide) => (
+            {data.map((slide) => (
                 <SwiperSlide style={{ backgroundPosition: 'center', backgroundSize: 'cover' , 
-                background: '#1A202C', color: 'white', fontFamily: 'Copperplate, serif'}} key={slide.image} effect>
-                    <img style= {{ width: 490, height: 500 }} src={slide.image} alt={slide.title}/>
-                    <h3>Name: {slide.name}</h3>
-                    <h3>Species: {slide.species}</h3>
-                    <h3>Sex: {slide.sex}</h3>
-                    <h3>Age: {slide.age}</h3>
+                background: '#1A202C', color: 'white', fontFamily: 'Copperplate, serif'}} key={slide.Image} effect>
+                    <img style= {{ width: 490, height: 500 }} src={slide.Image} alt={slide.title}/>
+                    <h3>Name: {slide.Name}</h3>
+                    <h3>Species: {slide.Species}</h3>
+                    <h3>Sex: {slide.Sex}</h3>
+                    <h3>Age: {slide.Age}</h3>
                 </SwiperSlide>
-                
             ))}
         </Swiper>
     )
