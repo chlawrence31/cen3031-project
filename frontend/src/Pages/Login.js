@@ -70,7 +70,7 @@ function Login() {
         <div className="mt-3">
           <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         </div>
-        <h3>Don't have an account?</h3>
+        <h3 className = 'mt-5'>Don't have an account?</h3>
         <Link to="/signup" className="btn btn-default border">Create Account</Link>
       </form> 
     </div>

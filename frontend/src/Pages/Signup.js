@@ -36,9 +36,9 @@ function Signup() {
       <input type="password" id="inputPassword" class="form-control" placeholder="Password"
       name = 'password' onChange={handleInput} required></input>
       <div className ="mt-3">
-        <button className ="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button className ="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
       </div>
-      <h3>Already have an account?</h3>
+      <h3 className = 'mt-5'>Already have an account?</h3>
       <Link to="/login" className ="btn btn-default border">Login</Link>
       </form>
     </div>
