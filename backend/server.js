@@ -102,13 +102,34 @@ app.post('/donationUpdate', (req, res) => {
     });
 });
 
-app.get("/topThreeAnimals", (req, res) => {
+// Return top 3 animals based on donation amount
+app.get('/topThreeAnimals', (req, res) => {
     const sql = "SELECT * FROM animals ORDER BY donation DESC LIMIT 3";
     db.query(sql, (err, data) => {
         if (err) return res.json(err);
         return res.json(data);
     });
 });
+
+app.post('/newAnimal', (req, res) => {
+    // Extracting data from the request body
+    const { name, species, sex, age, description, image } = req.body;
+
+    // Constructing the SQL INSERT statement
+    const sql = `INSERT INTO animals (Name, Species, Sex, Age, Description, Image, Donation) VALUES (?, ?, ?, ?, ?, ?, 0)`;
+    
+    // Executing the SQL query with the data
+    db.query(sql, [name, species, sex, age, description, image], (err, data) => {
+        if (err) {
+            console.error('Error inserting new animal:', err);
+            res.status(500).json({ error: 'Internal server error' });
+        } else {
+            console.log('Animal inserted successfully');
+            res.status(200).json({ message: 'Animal inserted successfully' });
+        }
+    });
+});
+
 
 
 
