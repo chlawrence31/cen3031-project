@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { TopAnimalSlides } from './TopAnimalSlides';
+import { TopAnimalSlides } from '../Components/TopAnimalSlides';
 import AnimalSlider from '../Components/AnimalSlider'; // Check this line to ensure the correct path
 
 function HomePage() {
