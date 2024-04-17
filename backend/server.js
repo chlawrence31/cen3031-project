@@ -19,12 +19,7 @@ const db = mysql.createConnection({
     user: "root",
     password: "password",
     database: "AnimalSanctuary"        // Update to the name of your particular database set in mysqlWorkbench
-})
-
-app.get("./api", (req, res) => 
-{
-    res.json({"users": ["userOne", "userTwo", "userThree"]})
-})
+});
 
 // Function to get the 100 animals from the animals table in the mysql db
 app.get("/animals", (req,res) => {
@@ -33,7 +28,7 @@ app.get("/animals", (req,res) => {
         if(err) return res.json(err);
         return res.json(data)
     })
-})
+});
 
 //Checks if user is logged in
 app.get('/', (req, res) => 
@@ -46,7 +41,7 @@ app.get('/', (req, res) =>
     {
         return res.json({valid: false})
     }
-})
+});
 
 //Handles signup requests
 app.post('/signup', (req, res) => 
@@ -63,7 +58,7 @@ app.post('/signup', (req, res) =>
         if(err) return res.json({Message: "Error in inserting user values"})
         return res.json.result
     })
-})
+});
 
 //Handles login requests
 app.post('/login', (req, res) => {
@@ -106,5 +101,15 @@ app.post('/donationUpdate', (req, res) => {
         }
     });
 });
+
+app.get("/topThreeAnimals", (req, res) => {
+    const sql = "SELECT * FROM animals ORDER BY donation DESC LIMIT 3";
+    db.query(sql, (err, data) => {
+        if (err) return res.json(err);
+        return res.json(data);
+    });
+});
+
+
 
 app.listen(8000, ()=> {console.log("Server started on port 8000")})
