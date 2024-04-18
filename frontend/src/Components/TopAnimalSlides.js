@@ -28,7 +28,7 @@ export const TopAnimalSlides = ({ data }) => {
             {data.map((slide) => (
                 <SwiperSlide style={{ backgroundPosition: 'center', backgroundSize: 'cover' , 
                 background: '#1A202C', color: 'white', fontFamily: 'Copperplate, serif'}} key={slide.Image} effect>
-                    <img style= {{ width: 490, height: 500 }} src={slide.Image} alt={slide.title}/>
+                    <img style= {{ width: 494, height: 500 }} src={slide.Image} alt={slide.title}/>
                     <h3>Name: {slide.Name}</h3>
                     <h3>Species: {slide.Species}</h3>
                     <h3>Sex: {slide.Sex}</h3>

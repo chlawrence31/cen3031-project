@@ -40,7 +40,7 @@ const Gallery = () => {
                     variant="top"
                     src={animal.Image}
                     alt={animal.Name}
-                    style={{ height: '200px', objectFit: 'cover' }} // Adjust dimensions as needed
+                    style={{ height: '200px', objectFit: 'cover'}} // Adjust dimensions as needed
                   />
                 )}
                 <Card.Body style={{ height: '260px', marginBottom: '0' }}>
