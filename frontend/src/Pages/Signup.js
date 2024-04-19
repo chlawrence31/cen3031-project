@@ -11,7 +11,6 @@ function Signup() {
     password: ''
   })
   const navigate = useNavigate();
-  //const [errors, setErrors] = useState({})
   const handleInput = (event) => 
   {
     setValues(prev => ({...prev, [event.target.name]: [event.target.value]}))

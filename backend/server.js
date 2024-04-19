@@ -2,6 +2,8 @@ const express = require('express');
 const session = require('express-session');
 const mysql = require('mysql2')
 const cors = require('cors')
+const uuidv4 = require('uuid').v4;
+//Do npm install uuid
 
 const app = express()
 app.use(cors())
@@ -13,6 +15,8 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
+
+const sessions = {};
 
 const db = mysql.createConnection({
     host:"localhost",
@@ -33,20 +37,38 @@ app.get("/animals", (req,res) => {
 //Checks if user is logged in
 app.get('/loginCheck', (req, res) => 
 {
-    if(req.session.username)
+    const sessionId = req.headers.cookies.split('=')[1];
+    const userSession = sessions[sessionId];
+    const userId = userSession.userId;
+    const username = userSession.username;
+    const donationAmount = userSession.donationAmount;
+    if(userId === 1)
     {
-        return res.json({valid: true, username: req.session.username})
+        return res.send([{
+            userId,
+            username,
+            donationAmount,
+            valid: true,
+           }])
     }
     else
     {
         return res.json({valid: false})
     }
+    // if(req.session.username)
+    // {
+    //     return res.json({valid: true, username: req.session.username})
+    // }
+    // else
+    // {
+    //     return res.json({valid: false})
+    // }
 });
 
 //Handles signup requests
 app.post('/signup', (req, res) => 
 {
-    const sql =  "INSERT INTO `login`(`name`, `email`, `password`) VALUES ('" + req.body.username + "', '" + req.body.email + "', '" + req.body.password + "')";;
+    const sql =  "INSERT INTO `login`(`username`, `email`, `password`) VALUES ('" + req.body.username + "', '" + req.body.email + "', '" + req.body.password + "')";;
     const values = 
     [
         req.body.username,
@@ -73,9 +95,16 @@ app.post('/login', (req, res) => {
         }
 
         if (result.length > 0) {
-            // User found, set session and return success
+            const sessionId = uuidv4();
             const username = result[0].username;
-            req.session.username = username;
+            const email = result[0].email;
+            const donationAmount = result[0].donationAmount;
+            sessions[sessionId] = {username, email, donationAmount, userId: 1};
+            res.set('Set-Cookie', 'sessions=${sessionId}');
+            // User found, set session and return success
+            // req.session.username = username;
+            // req.session.email = email;
+            // req.session.donationAmount = donationAmount;
             return res.json({ success: true, username: username });
         } else {
             // No user found with provided credentials
