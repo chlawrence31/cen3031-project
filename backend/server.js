@@ -17,6 +17,7 @@ app.use(session({
 }));
 
 const sessions = {};
+const sessionId = uuidv4();
 
 const db = mysql.createConnection({
     host:"localhost",
@@ -37,32 +38,18 @@ app.get("/animals", (req,res) => {
 //Checks if user is logged in
 app.get('/loginCheck', (req, res) => 
 {
-    const sessionId = req.headers.cookies.split('=')[1];
-    const userSession = sessions[sessionId];
-    const userId = userSession.userId;
-    const username = userSession.username;
-    const donationAmount = userSession.donationAmount;
-    if(userId === 1)
+    if(sessions[sessionId].userId == 1)
     {
-        return res.send([{
-            userId,
-            username,
-            donationAmount,
+        return res.json({
+            username: sessions[sessionId].username,
+            donationAmount: sessions[sessionId].donationAmount,
             valid: true,
-           }])
+           })
     }
     else
     {
         return res.json({valid: false})
     }
-    // if(req.session.username)
-    // {
-    //     return res.json({valid: true, username: req.session.username})
-    // }
-    // else
-    // {
-    //     return res.json({valid: false})
-    // }
 });
 
 //Handles signup requests
@@ -95,17 +82,11 @@ app.post('/login', (req, res) => {
         }
 
         if (result.length > 0) {
-            const sessionId = uuidv4();
             const username = result[0].username;
             const email = result[0].email;
             const donationAmount = result[0].donationAmount;
-            sessions[sessionId] = {username, email, donationAmount, userId: 1};
-            res.set('Set-Cookie', 'sessions=${sessionId}');
-            // User found, set session and return success
-            // req.session.username = username;
-            // req.session.email = email;
-            // req.session.donationAmount = donationAmount;
-            return res.json({ success: true, username: username });
+            sessions[sessionId] = {username: username, email: email, donationAmount: donationAmount, userId: 1};
+            return res.json({ success: true, username: username, session: sessions[sessionId]});
         } else {
             // No user found with provided credentials
             return res.status(401).json({ message: 'Invalid email or password' });

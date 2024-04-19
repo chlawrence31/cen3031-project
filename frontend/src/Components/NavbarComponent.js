@@ -14,8 +14,8 @@ const NavbarComponent = () => {
     // Function to check if user is logged in
     const checkLoginStatus = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/loginCheck', {withCredentials: true});
-        setIsLoggedIn(response.valid); // Update login status based on response
+        const response = await axios.get('http://localhost:8000/loginCheck');
+        setIsLoggedIn(response.data.valid); // Update login status based on response
       } catch (error) {
         console.error('Error checking login status:', error);
       }
