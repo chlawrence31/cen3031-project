@@ -131,9 +131,9 @@ app.post('/donationUpdate', (req, res) => {
     });
 });
 
-// Return top 3 animals based on donation amount
+// Return top 5 animals based on donation amount
 app.get('/topThreeAnimals', (req, res) => {
-    const sql = "SELECT * FROM animals ORDER BY donation DESC LIMIT 3";
+    const sql = "SELECT * FROM animals ORDER BY donation DESC LIMIT 5";
     db.query(sql, (err, data) => {
         if (err) return res.json(err);
         return res.json(data);
