@@ -28,10 +28,7 @@ function Login() {
         console.log(response.data);
         const { success, username } = response.data;
         if (success) {
-          navigate('/home');
-          // temporaily put the navigate to profile so that I could view the 
-          // profile page while working on it. will have to find a place to link it
-          // navigate('/profile');
+          window.location.replace("http://localhost:3000/home");
         } else {
           alert("No account listed");
         }
