@@ -6,9 +6,9 @@ import axios from 'axios'
 function Profile() {
   // State variables to store user data
   const [email, setEmail] = useState('');
-  const [donationAmount, setDonationAmount] = useState('');
+  const [donationAmount, setDonationAmount] = useState(0);
   const [username, setUsername] = useState('');
-  const [totalDonationAmount, setTotalDonationAmount] = useState('');
+  const [totalDonationAmount, setTotalDonationAmount] = useState(0);
 
   // useEffect hook to fetch user data when the component mounts
   useEffect(() => {
@@ -33,7 +33,8 @@ function Profile() {
   useEffect(() => {
     axios.get('http://localhost:8000/totalDonations')
       .then(response => {
-        setTotalDonationAmount(response.data.total_donation); // Accessing the total donation amount from the response
+        console.log(response.data)
+        setTotalDonationAmount(response.data.totalDonation); // Accessing the total donation amount from the response
       })
       .catch(error => {
         console.error('Error fetching total donation amount:', error);

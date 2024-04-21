@@ -85,7 +85,7 @@ app.post('/login', (req, res) => {
         if (result.length > 0) {
             const username = result[0].username;
             const email = result[0].email;
-            const donationAmount = result[0].donationamount;
+            const donationAmount = result[0].donationAmount;
             sessions[sessionId] = {username: username, email: email, donationAmount: donationAmount, userId: 1};
             return res.json({ success: true, username: username, session: sessions[sessionId]});
         } else {
@@ -143,7 +143,7 @@ app.post('/newAnimal', (req, res) => {
 
 // Return total sum of all animal donations (total_donation: sum(donations))
 app.get('/totalDonations', (req, res) => {
-    const sql = "SELECT SUM(donation) AS total_donation FROM animals";
+    const sql = "SELECT SUM(Donation) AS totalDonation FROM animals";
     db.query(sql, (err, data) => {
         if (err) return res.json(err);
         return res.json(data);
