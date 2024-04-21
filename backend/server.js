@@ -42,6 +42,7 @@ app.get('/loginCheck', (req, res) =>
     {
         return res.json({
             username: sessions[sessionId].username,
+            email: sessions[sessionId].email,
             donationAmount: sessions[sessionId].donationAmount,
             valid: true,
            })
