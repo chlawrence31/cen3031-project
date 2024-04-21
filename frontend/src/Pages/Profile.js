@@ -8,6 +8,7 @@ function Profile() {
   const [email, setEmail] = useState('');
   const [donationAmount, setDonationAmount] = useState('');
   const [username, setUsername] = useState('');
+  const [totalDonationAmount, setTotalDonationAmount] = useState('');
 
   // useEffect hook to fetch user data when the component mounts
   useEffect(() => {
@@ -29,16 +30,31 @@ function Profile() {
         console.error('Error fetching user data:', error);
       });
   }, []); // Empty dependency array ensures that this effect runs only once when the component mounts 
+  useEffect(() => {
+    axios.get('http://localhost:8000/totalDonations')
+      .then(response => {
+        setTotalDonationAmount(response.data.total_donation); // Accessing the total donation amount from the response
+      })
+      .catch(error => {
+        console.error('Error fetching total donation amount:', error);
+        // Handle error if needed
+      });
+  }, []); // Empty dependency array to run this effect only once after the component mounts
   return(
     <div className="d-flex justify-content-center" style={{marginTop: '20px'}}>
     <Card style={{width: '18rem' }}>
       <Card.Img variant="top" src="https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI=" />
       <Card.Body className="text-center">
-        <Card.Title>Name {username}</Card.Title>
+        <Card.Title>Name: {username}</Card.Title>
       </Card.Body>
       <ListGroup className="list-group-flush">
         <ListGroup.Item>Email: {email}</ListGroup.Item>
-        <ListGroup.Item>Total Donation Amount: ${donationAmount}</ListGroup.Item>
+        {username === "admin" ? 
+        (
+        <ListGroup.Item>Total Donation Amount: ${totalDonationAmount}</ListGroup.Item>
+        ) : (
+        <ListGroup.Item>Your Donation Amount: ${donationAmount}</ListGroup.Item>
+        )}
       </ListGroup>
     </Card>
     </div>
