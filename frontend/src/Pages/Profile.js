@@ -8,7 +8,7 @@ function Profile() {
   const [email, setEmail] = useState('');
   const [donationAmount, setDonationAmount] = useState(0);
   const [username, setUsername] = useState('');
-  const [totalDonationAmount, setTotalDonationAmount] = useState(0);
+  const [totalDonationAmount, setTotalDonationAmount] = useState('');
 
   // useEffect hook to fetch user data when the component mounts
   useEffect(() => {
@@ -29,18 +29,21 @@ function Profile() {
         // Handle errors
         console.error('Error fetching user data:', error);
       });
-  }, []); // Empty dependency array ensures that this effect runs only once when the component mounts 
+  }, []);
+
+
   useEffect(() => {
     axios.get('http://localhost:8000/totalDonations')
       .then(response => {
-        console.log(response.data)
-        setTotalDonationAmount(response.data.totalDonation); // Accessing the total donation amount from the response
+        setTotalDonationAmount(response.data[0].totalDonation); // Accessing the total donation amount from the response
       })
       .catch(error => {
         console.error('Error fetching total donation amount:', error);
         // Handle error if needed
       });
-  }, []); // Empty dependency array to run this effect only once after the component mounts
+  }, []);
+
+
   return(
     <div className="d-flex justify-content-center" style={{marginTop: '20px'}}>
     <Card style={{width: '18rem' }}>
