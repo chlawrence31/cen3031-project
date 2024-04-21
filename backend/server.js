@@ -141,6 +141,14 @@ app.post('/newAnimal', (req, res) => {
     });
 });
 
+// Return total sum of all animal donations (total_donation: sum(donations))
+app.get('/totalDonations', (req, res) => {
+    const sql = "SELECT SUM(donation) AS total_donation FROM animals";
+    db.query(sql, (err, data) => {
+        if (err) return res.json(err);
+        return res.json(data);
+    });
+});
 
 
 
