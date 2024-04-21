@@ -85,7 +85,7 @@ app.post('/login', (req, res) => {
         if (result.length > 0) {
             const username = result[0].username;
             const email = result[0].email;
-            const donationAmount = result[0].donationAmount;
+            const donationAmount = result[0].donationamount;
             sessions[sessionId] = {username: username, email: email, donationAmount: donationAmount, userId: 1};
             return res.json({ success: true, username: username, session: sessions[sessionId]});
         } else {
