@@ -121,6 +121,7 @@ app.post('/donationUpdate', (req, res) => {
                 return;
             }
 
+            sessions[sessionId].donationAmount = +amount + +sessions[sessionId].donationAmount;
             console.log('Donation updated successfully in login table');
             res.status(200).json({ message: 'Donation updated successfully' });
         });
@@ -162,7 +163,6 @@ app.get('/totalDonations', (req, res) => {
     const sql = "SELECT SUM(Donation) AS totalDonation FROM animals";
     db.query(sql, (err, data) => {
         if (err) return res.json(err);
-        console.log(data)
         return res.json(data);
     });
 });
