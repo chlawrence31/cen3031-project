@@ -96,22 +96,38 @@ app.post('/login', (req, res) => {
 });
 
 
-//Update donation info in DB
+// Update donation info in DB
 app.post('/donationUpdate', (req, res) => {
     // Extract data from request body
-    const { animalId, amount } = req.body;
-    // SQL query
-    const sql = "UPDATE animals SET donation = donation + ? WHERE id = ?";
-    db.query(sql, [amount, animalId], (err, result) => {
+    const { animalId, amount} = req.body;
+
+    // SQL query to update donation in animals table
+    const animalSql = "UPDATE animals SET donation = donation + ? WHERE id = ?";
+    db.query(animalSql, [amount, animalId], (err, animalResult) => {
         if (err) {
-          console.error('Error updating donation:', err);
-          res.status(500).json({ error: 'Internal server error' });
-        } else {
-          console.log('Donation updated successfully');
-          res.status(200).json({ message: 'Donation updated successfully' });
+            console.error('Error updating donation in animals table:', err);
+            res.status(500).json({ error: 'Internal server error' });
+            return;
         }
+
+        console.log('Donation updated successfully in animals table');
+
+        // SQL query to update donation in login table
+        const loginSql = "UPDATE login SET donationAmount = donationAmount + ? WHERE email = ?";
+        db.query(loginSql, [amount, sessions[sessionId].email], (loginErr, loginResult) => {
+            if (loginErr) {
+                console.error('Error updating donation in login table:', loginErr);
+                res.status(500).json({ error: 'Internal server error' });
+                return;
+            }
+
+            console.log('Donation updated successfully in login table');
+            res.status(200).json({ message: 'Donation updated successfully' });
+        });
     });
 });
+
+
 
 // Return top 5 animals based on donation amount
 app.get('/topThreeAnimals', (req, res) => {
